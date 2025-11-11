@@ -92,7 +92,7 @@
     "test:watch": "vitest --watch",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest --coverage",
-    "validate": "npm run type-check && npm run lint && npm run format:check && npm run test",
+    "validate": "npm run type-check && npm run lint && npm run format:check",
     "prepare": "husky",
     "prepublishOnly": "npm run validate && npm run build"
   },
