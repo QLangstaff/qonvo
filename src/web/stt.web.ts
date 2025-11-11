@@ -30,9 +30,13 @@ export function createWebSTT(): STTEngine {
     onError?: (error: any) => void
   } = {}
 
-  const availability = async (): Promise<Availability> => {
+  const availability = (): Promise<Availability> => {
     const ok = !!getSpeechRecognitionConstructor()
-    return { stt: ok, tts: false, details: ok ? undefined : 'Web SpeechRecognition not available' }
+    return Promise.resolve({
+      stt: ok,
+      tts: false,
+      details: ok ? undefined : 'Web SpeechRecognition not available',
+    })
   }
 
   const start: STTEngine['start'] = async (opts) => {
@@ -51,7 +55,7 @@ export function createWebSTT(): STTEngine {
 
     // Handle abort signal
     const abortHandler = () => {
-      stop()
+      void stop()
     }
 
     if (opts.signal) {

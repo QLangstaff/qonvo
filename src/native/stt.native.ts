@@ -32,7 +32,7 @@ export function createNativeSTT(): STTEngine {
     if (Voice) return Voice
     try {
       const mod = (await import('@react-native-voice/voice')) as DynamicModule<Voice>
-      Voice = ('default' in mod ? mod.default : mod) as Voice
+      Voice = 'default' in mod ? mod.default : mod
     } catch {
       Voice = null
     }

@@ -851,7 +851,7 @@ export function startConversation(options?: {
       const pauseMs = Math.max(requestedPause, MIN_PAUSE_MS)
 
       // Run loop in background (non-blocking)
-      ;(async () => {
+      void (async () => {
         do {
           try {
             // Use internal primitive (no controller overhead)

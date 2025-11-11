@@ -18,9 +18,13 @@ export function createWebTTS(): TTSEngine {
   let isActive = false
   let isPaused = false
 
-  const availability = async (): Promise<Availability> => {
+  const availability = (): Promise<Availability> => {
     const ok = typeof window !== 'undefined' && 'speechSynthesis' in window
-    return { stt: false, tts: ok, details: ok ? undefined : 'Web SpeechSynthesis not available' }
+    return Promise.resolve({
+      stt: false,
+      tts: ok,
+      details: ok ? undefined : 'Web SpeechSynthesis not available',
+    })
   }
 
   const listVoices = async () => {
@@ -120,27 +124,30 @@ export function createWebTTS(): TTSEngine {
     })
   }
 
-  const pause = async () => {
+  const pause = () => {
     const ss = getSpeechSynthesis()
     if (ss && isActive) {
       ss.pause()
       isPaused = true
     }
+    return Promise.resolve()
   }
 
-  const resume = async () => {
+  const resume = () => {
     const ss = getSpeechSynthesis()
     if (ss && isPaused) {
       ss.resume()
       isPaused = false
     }
+    return Promise.resolve()
   }
 
-  const stop = async () => {
+  const stop = () => {
     const ss = getSpeechSynthesis()
     ss?.cancel()
     isActive = false
     isPaused = false
+    return Promise.resolve()
   }
 
   return { availability, listVoices, start, pause, resume, stop, isActive, isPaused }

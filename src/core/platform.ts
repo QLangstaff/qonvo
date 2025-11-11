@@ -17,7 +17,7 @@ import {
  */
 export function initializePlatform(sttEngine: STTEngine | null, ttsEngine: TTSEngine | null): void {
   setEngines(sttEngine, ttsEngine)
-  refreshAvailability()
+  void refreshAvailability()
 }
 
 /**

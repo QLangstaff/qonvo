@@ -13,7 +13,7 @@ export function createNativeTTS(): TTSEngine {
     if (ExpoSpeech) return ExpoSpeech
     try {
       const mod = (await import('expo-speech')) as DynamicModule<ExpoSpeech>
-      ExpoSpeech = ('default' in mod ? mod.default : mod) as ExpoSpeech
+      ExpoSpeech = 'default' in mod ? mod.default : mod
     } catch {
       ExpoSpeech = null
     }
