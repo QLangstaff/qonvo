@@ -1,0 +1,137 @@
+{
+  "name": "qonvo",
+  "version": "1.0.0",
+  "description": "Voice SDK for React & React Native.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/QLangstaff/qonvo"
+  },
+  "bugs": {
+    "url": "https://github.com/QLangstaff/qonvo/issues"
+  },
+  "homepage": "https://github.com/QLangstaff/qonvo#readme",
+  "keywords": [
+    "tts",
+    "stt",
+    "text-to-speech",
+    "speech-to-text",
+    "speech-recognition",
+    "speech-synthesis",
+    "speech",
+    "voice",
+    "read",
+    "listen",
+    "voice-recognition",
+    "voice-commands",
+    "voice-assistant",
+    "ai-assistant",
+    "conversation",
+    "nlp",
+    "accessibility",
+    "microphone",
+    "audio",
+    "transcription",
+    "captions",
+    "cross-platform",
+    "sdk",
+    "react",
+    "react-native",
+    "expo",
+    "typescript"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": {
+      "react-native": {
+        "types": "./dist/index.native.d.ts",
+        "import": "./dist/index.native.js",
+        "require": "./dist/index.native.cjs"
+      },
+      "types": "./dist/index.web.d.ts",
+      "import": "./dist/index.web.js",
+      "require": "./dist/index.web.cjs"
+    }
+  },
+  "main": "./dist/index.web.cjs",
+  "module": "./dist/index.web.js",
+  "types": "./dist/index.web.d.ts",
+  "peerDependencies": {
+    "@react-native-voice/voice": "*",
+    "expo-speech": "*",
+    "react": "^18.0.0 || ^19.0.0",
+    "react-native": "*"
+  },
+  "peerDependenciesMeta": {
+    "react-native": {
+      "optional": true
+    },
+    "expo-speech": {
+      "optional": true
+    },
+    "@react-native-voice/voice": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "tsup",
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix",
+    "format": "prettier --write \"**/*.{ts,tsx,json,md}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,json,md}\"",
+    "type-check": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest --watch",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "validate": "npm run type-check && npm run lint && npm run format:check && npm run test",
+    "prepare": "husky",
+    "prepublishOnly": "npm run validate && npm run build"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/react-hooks": "^8.0.1",
+    "@types/node": "^20.12.12",
+    "@types/react": "^19.0.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "@vitest/coverage-v8": "^4.0.7",
+    "@vitest/ui": "^4.0.7",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.34.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "happy-dom": "^20.0.10",
+    "husky": "^9.0.11",
+    "jsdom": "^27.1.0",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.2.5",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "rimraf": "^5.0.7",
+    "tsup": "^8.0.1",
+    "typescript": "^5.6.3",
+    "vitest": "^4.0.7"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
+  },
+  "packageManager": "pnpm@10.15.0+sha512.486ebc259d3e999a4e8691ce03b5cac4a71cbeca39372a9b762cb500cfdf0873e2cb16abe3d951b1ee2cf012503f027b98b6584e4df22524e0c7450d9ec7aa7b",
+  "dependencies": {
+    "eslint": "^9.39.1"
+  }
+}

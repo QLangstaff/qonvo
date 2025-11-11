@@ -1,0 +1,59 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+
+# Testing
+coverage/
+.nyc_output/
+*.lcov
+
+# Environment
+.env
+
+# IDEs and editors (keep .vscode/ for shared settings)
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Package manager lockfiles (keep pnpm-lock.yaml)
+# package-lock.json
+# yarn.lock
+
+# Build artifacts
+*.tgz
+*.tar.gz
+
+# Temporary files
+*.tmp
+*.temp
+*.backup
+*.bak
+.cache/
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Misc
+.turbo/
+.vercel/
+.next/
+.nuxt/
+.husky/
